@@ -15,10 +15,10 @@ class Command(BaseCommand):
 
         for phone in phones:
             # TODO: Добавьте сохранение модели
-            new_phone = Phone(name=phone['name'],
+            new_phone = Phone.objects.create(name=phone['name'],
                   price=phone['price'],
                   image=phone['image'],
                   release_date=phone['release_date'],
                   lte_exists=phone['lte_exists'],
-                  slug=slugify(phone['name'])).save()
+                  slug=slugify(phone['name']))
             print(new_phone.price)
